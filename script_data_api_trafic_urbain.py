@@ -66,17 +66,21 @@ df.drop(columns=['datasetid', 'recordid','record_timestamp'], inplace=True)
 # mettre id a la premiere position
 df = df[['id'] + [col for col in df.columns if col != 'id']]
 
+# Ajout d'un id technique qu'on mettre comme clé primaire dans notre BDD (pour eviter les doublons)
+df.insert(loc=0, column='id_technique',
+           value=df['id'].map(str) + '-' + df['horodatage'].apply(lambda x: x[0:19].replace('-', '').replace(':','')))
+
 # query pour ecrire dans la base
 query= """
     INSERT INTO public.trafic_routier
 (id, debit, longueur, taux_occupation, code_couleur, nom_du_troncon, etat_du_trafic, temps_de_parcours, vitesse, geo_point_2d, geometrie, shape_geo, horodatage, type_geo, coordinates_geo)
-VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);
+VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);
 """
 
 # parcourir ligne par ligne le dataframe pour alimenter la base
 for row in df.itertuples(index=False):
     cur.execute(query,
-                 (row.id, row.debit, row.longueur, row.taux_occupation,
+                 (row.id_technique, row.id, row.debit, row.longueur, row.taux_occupation,
                    row.code_couleur, row.nom_du_tronçon, row.etat_du_trafic
                   , row.temps_de_parcours, row.vitesse, row.geo_point_2d, 
                   row.geometrie, row.shape_geo, row.horodatage,
