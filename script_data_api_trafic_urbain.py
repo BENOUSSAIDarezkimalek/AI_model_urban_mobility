@@ -73,7 +73,7 @@ df.insert(loc=0, column='id_technique',
 # query pour ecrire dans la base
 query= """
     INSERT INTO public.trafic_routier
-(id, debit, longueur, taux_occupation, code_couleur, nom_du_troncon, etat_du_trafic, temps_de_parcours, vitesse, geo_point_2d, geometrie, shape_geo, horodatage, type_geo, coordinates_geo)
+(id_technique, id, debit, longueur, taux_occupation, code_couleur, nom_du_troncon, etat_du_trafic, temps_de_parcours, vitesse, geo_point_2d, geometrie, shape_geo, horodatage, type_geo, coordinates_geo)
 VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);
 """
 
