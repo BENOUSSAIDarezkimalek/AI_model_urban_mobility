@@ -1,10 +1,6 @@
-import re
 from datetime import datetime,time
-import re
 import locale
-import requests
 from bs4 import BeautifulSoup
-import pandas as pd
 import json
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
