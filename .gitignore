@@ -1,5 +1,7 @@
 projet_etude/
 data/
+src/.cache.sqlite
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
