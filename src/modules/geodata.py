@@ -22,6 +22,8 @@ def convert_to_linestring(geometry_str):
         return None
 
 
+
+
 def has_close_event(trafic, evenement, seuil=500):
     '''
     Calcul la distance entre un lieu d'evennt et un tronçon de route
