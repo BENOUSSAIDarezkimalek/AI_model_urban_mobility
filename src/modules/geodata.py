@@ -22,11 +22,20 @@ def convert_to_linestring(geometry_str):
         return None
 
 
+def convert_to_point(coord_str):
+    '''
+    Convertir un chaine en Point
+    '''
+    coords = coord_str.strip("{}").split(", ")
+    longitude, latitude = map(float, coords)
+    return Point(longitude, latitude)
 
 
-def has_close_event(trafic, evenement, seuil=500):
-    '''
-    Calcul la distance entre un lieu d'evennt et un tronçon de route
-    '''
-    distance = trafic.distance(evenement)
-    return distance <= seuil / 1000  # Convertir en kilomètres (500m = 0.5km)
+# def has_close_event(trafic, evenement, seuil=500):
+#     '''
+#     Calcul la distance entre un lieu d'evennt et un tronçon de route
+#     '''
+#     distance = trafic.distance(evenement)
+#     return distance <= seuil / 1000 
+
+
