@@ -1,1 +1,67 @@
 projet_etude/
+# >>> Python >>>
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Packages
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
+sdist/
+wheels/
+pip-wheel-metadata/
+*.manifest
+*.spec
+
+# PyInstaller
+*.spec
+
+# Virtual environments
+venv/
+.venv/
+env/
+.env/
+ENV/
+env.bak/
+venv.bak/
+
+# VSCode
+.vscode/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# dotenv environment variables
+.env
+.env.*
+
+# SQLite database
+*.sqlite3
+*.db
+
+# mypy, pytest, coverage, etc.
+.mypy_cache/
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+.cache/
+
+# Profiling data
+.prof
+
+# Pyright / Pylance
+pyrightconfig.json
