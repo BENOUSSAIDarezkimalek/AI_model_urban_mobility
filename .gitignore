@@ -1,1 +1,5 @@
 projet_etude/
+.DS_Store
+.env
+data/
+.cache
