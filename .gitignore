@@ -3,3 +3,4 @@ projet_etude/
 .env
 data/
 .cache
+*.joblib
