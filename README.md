@@ -78,6 +78,28 @@ Le modèle relationnel est centré sur la table `trafic_routier`, liée aux donn
 - Très bon sur conditions normales (MAE = 0.11).
 - Inefficace sur incidents (RMSE = 0.84), erreurs importantes sur les cas rares.
 
+# 🤖 Solution Retenue : Double Modèle LSTM
+
+Notre solution repose sur une architecture en cascade avec deux modèles **LSTM** pour prédire l'état du trafic. Cette approche décompose le problème pour plus de précision.
+
+### Étape 1 : LSTM pour le Taux d'Occupation
+
+Un premier LSTM est entraîné pour prédire la valeur future du **taux d'occupation**.
+
+- **Input** : Séquences temporelles du taux d'occupation historique + variables externes (météo, trafic, calendrier).
+- **Output** : La valeur prédite du taux d'occupation.
+- **Objectif** : Modéliser la dynamique temporelle.
+
+### Étape 2 : LSTM pour le Code de Circulation (etat_du_trafic)
+
+Un second LSTM utilise cette prédiction pour classifier l'état final du trafic.
+
+- **Input** :
+    - **Taux d'occupation prédit** (par le modèle 1).
+    - **Variables exogènes** (heure, jour, météo, événements, etc.).
+- **Output** : Le code de circulation final (Fluide / Non-Fluide).
+- **Objectif** : Contextualiser la prédiction de densité.
+
 ## 🚀 Pistes d'amélioration
 
 - Étendre la période de collecte à une année complète.
