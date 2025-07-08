@@ -9,6 +9,15 @@ import ast
 from pathlib import Path
 from shapely import wkt
 
+# --- Configuration de la page ---
+st.set_page_config(page_title="Prédictions", page_icon="🔮", layout="wide")
+
+st.title("🔮 Prédictions")
+st.write(
+    "Sélectionnez une date et une heure pour comparer l’état **réel** du trafic "
+    "avec les données **prédites** par notre modèle de Deep Learning."
+)
+
 
 # --- Chargement du fichier ---
 
@@ -29,14 +38,6 @@ def load_data(path: str) -> gpd.GeoDataFrame:
 gdf = load_data(DATA_PATH)
 
 
-# --- Configuration de la page ---
-st.set_page_config(page_title="Prédictions", page_icon="🔮", layout="wide")
-
-st.title("🔮 Prédictions")
-st.write(
-    "Sélectionnez une date et une heure pour comparer l’état **réel** du trafic "
-    "avec les données **prédites** par notre modèle de Deep Learning."
-)
 
 
 # ==============================================================================
