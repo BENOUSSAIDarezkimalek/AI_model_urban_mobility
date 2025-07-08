@@ -24,7 +24,7 @@ def load_and_process_data():
     """
     api_url = "https://data.nantesmetropole.fr/api/records/1.0/search/?dataset=244400404_fluidite-axes-routiers-nantes-metropole&rows=10000&timezone=Europe%2FParis"
     headers = {
-        "User-Agent": "Projet Etudiant IA Trafic Nantes (votre.email@etudiant.fr)"
+        "User-Agent": "Projet Etudiant IA Trafic Nantes"
     }
 
     try:
